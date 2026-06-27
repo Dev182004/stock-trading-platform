@@ -6,7 +6,7 @@ import { useAuth } from "../../../context/AuthContext";
 
 export default function Login() {
   const navigate = useNavigate();
-const { checkAuth, login } = useAuth();
+  const { checkAuth, login } = useAuth();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -26,14 +26,11 @@ const { checkAuth, login } = useAuth();
     try {
       const response = await api.post("/auth/login", formData);
 
-     
-      // await checkAuth();
-      const loggedInUser = response.data?.user; 
+      const loggedInUser = response.data?.user;
 
       if (loggedInUser) {
-        login(loggedInUser); // Triggers immediate frontend UI update
-      } else {
-        await checkAuth(); // Fallback
+        login(loggedInUser);
+        await checkAuth();
       }
 
       toast.success(response.data.message);
@@ -45,9 +42,7 @@ const { checkAuth, login } = useAuth();
 
       navigate("/");
     } catch (error) {
-      toast.error(
-        error.response?.data?.message || "Something went wrong"
-      );
+      toast.error(error.response?.data?.message || "Something went wrong");
     }
   };
 
@@ -58,9 +53,7 @@ const { checkAuth, login } = useAuth();
 
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label className="form-label">
-              Email
-            </label>
+            <label className="form-label">Email</label>
 
             <input
               type="email"
@@ -74,9 +67,7 @@ const { checkAuth, login } = useAuth();
           </div>
 
           <div className="mb-4">
-            <label className="form-label">
-              Password
-            </label>
+            <label className="form-label">Password</label>
 
             <input
               type="password"
@@ -89,10 +80,7 @@ const { checkAuth, login } = useAuth();
             />
           </div>
 
-          <button
-            type="submit"
-            className="btn btn-primary w-100"
-          >
+          <button type="submit" className="btn btn-primary w-100">
             Login
           </button>
         </form>

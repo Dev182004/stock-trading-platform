@@ -11,7 +11,10 @@ import logo from "../../Images/logo.svg";
 
 export default function Footer() {
   return (
-    <footer className="border-top" style={{ backgroundColor: "rgb(250,250,250)" }}>
+    <footer
+      className="border-top"
+      style={{ backgroundColor: "rgb(250,250,250)" }}
+    >
       <div className="container  mt-5">
         <div className="row mt-5">
           <div className="col-3 ">
@@ -149,13 +152,27 @@ export default function Footer() {
           </p>
         </div>
         <div className="d-flex flex-row gap-4 justify-content-center p-3">
-          <a className='a' href="">NSE</a>
-          <a className='a' href="">BSE</a>
-          <a className='a' href="">MCX</a>
-          <a className='a' href="">Terms & conditions</a>
-          <a className='a' href="">Policies & procedures</a>
-          <a className='a' href="">Privacy policy</a>
-          <a className='a' href="">Disclosure</a>
+          <a className="a" href="">
+            NSE
+          </a>
+          <a className="a" href="">
+            BSE
+          </a>
+          <a className="a" href="">
+            MCX
+          </a>
+          <a className="a" href="">
+            Terms & conditions
+          </a>
+          <a className="a" href="">
+            Policies & procedures
+          </a>
+          <a className="a" href="">
+            Privacy policy
+          </a>
+          <a className="a" href="">
+            Disclosure
+          </a>
         </div>
       </div>
     </footer>

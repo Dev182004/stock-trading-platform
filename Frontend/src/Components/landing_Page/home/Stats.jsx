@@ -23,7 +23,6 @@ export default function Stats() {
 
           <h2 className="fs-4">The Zerodha universe</h2>
           <p className="text-muted">
-            
             Not just an app, but a whole ecosystem. Our investments in 30+
             fintech startups offer you tailored services specific to your needs.
           </p>
@@ -42,10 +41,12 @@ export default function Stats() {
             src={ecosystem}
           ></img>
           <div className="text-center">
-            <a href="" className="mx-5" style={{textDecoration: "none"}}>
-              Explore our products <FontAwesomeIcon icon={faArrowRight}/>
+            <a href="" className="mx-5" style={{ textDecoration: "none" }}>
+              Explore our products <FontAwesomeIcon icon={faArrowRight} />
             </a>
-            <a href="" style={{textDecoration: "none"}}>Try Kite demo <FontAwesomeIcon icon={faArrowRight}/></a>
+            <a href="" style={{ textDecoration: "none" }}>
+              Try Kite demo <FontAwesomeIcon icon={faArrowRight} />
+            </a>
           </div>
         </div>
       </div>

@@ -9,14 +9,11 @@ export function AuthProvider({ children }) {
 
   const checkAuth = async () => {
     try {
-      
       const response = await api.get("/auth/me");
-     
 
       setUser(response.data.user);
-      
     } catch (error) {
-        console.log("Auth check failed:", error.response?.data || error.message);
+      console.log("Auth check failed:", error.response?.data || error.message);
       setUser(null);
     } finally {
       setLoading(false);
@@ -28,15 +25,15 @@ export function AuthProvider({ children }) {
   }, []);
 
   const logout = async () => {
-  try {
-    await api.post("/auth/logout");
-    setUser(null);
-  } catch (error) {
-    console.error(error);
-  }
-};
+    try {
+      await api.post("/auth/logout");
+      setUser(null);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-const login = (userData) => {
+  const login = (userData) => {
     setUser(userData);
   };
 

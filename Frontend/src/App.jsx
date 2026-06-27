@@ -10,9 +10,8 @@ import Footer from "./Components/landing_Page/Footer";
 import Navbar from "./Components/landing_Page/Navbar";
 import NotFound from "./Components/landing_Page/NotFound";
 import Login from "./Components/landing_Page/login/login";
-//import Dashboard from "./Components/landing_Page/DashBoard";
-
 import ProtectedRoute from "./Components/landing_Page/ProtectedRoute";
+
 function App() {
   return (
     <>
@@ -25,14 +24,6 @@ function App() {
         <Route path="/product" element={<ProductPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/support" element={<SupportPage />} />
-        {/* <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

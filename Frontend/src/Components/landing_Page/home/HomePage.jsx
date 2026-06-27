@@ -8,15 +8,14 @@ import Footer from "../Footer";
 import Navbar from "../Navbar";
 
 export default function HomePage() {
-    return ( 
-        <>
-           <Hero/>
-           <Awards/>
-           <Stats/>
-           <Pricing/>
-           <Education/>
-           <OpenAccount/>
-        </>
-     );
+  return (
+    <>
+      <Hero />
+      <Awards />
+      <Stats />
+      <Pricing />
+      <Education />
+      <OpenAccount />
+    </>
+  );
 }
-

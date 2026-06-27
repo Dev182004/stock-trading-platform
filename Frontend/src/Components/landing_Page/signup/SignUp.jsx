@@ -19,31 +19,25 @@ export default function SignUp() {
 
   const navigate = useNavigate();
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   console.log(formData);
-  // };
-
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
- try {
-  const response = await api.post("/auth/signup", formData);
+    try {
+      const response = await api.post("/auth/signup", formData);
 
-  toast.success(response.data.message);
+      toast.success(response.data.message);
 
-  setFormData({
-    username: "",
-    email: "",
-    password: "",
-  });
+      setFormData({
+        username: "",
+        email: "",
+        password: "",
+      });
 
-  navigate("/login");
-} catch (error) {
-  toast.error(error.response?.data?.message || "Something went wrong");
-}
-};
+      navigate("/login");
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Something went wrong");
+    }
+  };
 
   return (
     <div className="container mt-5" style={{ maxWidth: "500px" }}>
@@ -52,9 +46,7 @@ export default function SignUp() {
 
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label className="form-label">
-              Username
-            </label>
+            <label className="form-label">Username</label>
 
             <input
               type="text"
@@ -68,9 +60,7 @@ export default function SignUp() {
           </div>
 
           <div className="mb-3">
-            <label className="form-label">
-              Email
-            </label>
+            <label className="form-label">Email</label>
 
             <input
               type="email"
@@ -84,9 +74,7 @@ export default function SignUp() {
           </div>
 
           <div className="mb-4">
-            <label className="form-label">
-              Password
-            </label>
+            <label className="form-label">Password</label>
 
             <input
               type="password"
@@ -99,10 +87,7 @@ export default function SignUp() {
             />
           </div>
 
-          <button
-            type="submit"
-            className="btn btn-primary w-100"
-          >
+          <button type="submit" className="btn btn-primary w-100">
             Sign Up
           </button>
         </form>
