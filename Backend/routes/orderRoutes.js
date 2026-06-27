@@ -3,7 +3,7 @@ import protect from "../middlewares/protect.js";
 import {
   orders,
   newOrder,
-} from "../controllers/orderController.js";
+} from "../Controllers/orderController.js";
 
 const router = express.Router();
 
