@@ -6,7 +6,9 @@ export default function ProtectedRoute({ children }) {
 
   useEffect(() => {
     if (!loading && !isAuthenticated) {
-      window.location.href = "http://localhost:5173/login";
+      const websiteUrl =
+        import.meta.env.VITE_WEBSITE_URL || "http://localhost:5173";
+      window.location.href = `${websiteUrl}/login`;
     }
   }, [loading, isAuthenticated]);
 

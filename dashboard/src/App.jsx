@@ -1,7 +1,7 @@
 import Home from "./components/Home";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import ProtectedRoute from "./Components/ProtectedRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (

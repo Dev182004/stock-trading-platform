@@ -6,9 +6,8 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
-
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
@@ -16,14 +15,14 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
 export const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: 'top' ,
+      position: "top",
     },
     title: {
       display: true,
@@ -32,8 +31,6 @@ export const options = {
   },
 };
 
-
-
-export function VerticalGraph({data}) {
+export function VerticalGraph({ data }) {
   return <Bar options={options} data={data} />;
 }

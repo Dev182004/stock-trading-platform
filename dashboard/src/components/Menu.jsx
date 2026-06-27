@@ -17,6 +17,9 @@ const Menu = () => {
   const menuClass = "menu";
   const activeMenuClass = "menu selected";
 
+  const websiteUrl =
+    import.meta.env.VITE_WEBSITE_URL || "http://localhost:5173";
+
   return (
     <div className="menu-container">
       <img src={logo} style={{ width: "50px" }} />
@@ -90,13 +93,19 @@ const Menu = () => {
           </li>
 
           <li>
-    <a style={{ textDecoration: "none" }} href="http://localhost:5173">
-      <p className="menu" style={{ color: "#df514c", fontWeight: "600",fontSize:"16px" }}>
-        ← Website
-      </p>
-    </a>
-  </li>
-  
+            <a style={{ textDecoration: "none" }} href={websiteUrl}>
+              <p
+                className="menu"
+                style={{
+                  color: "#df514c",
+                  fontWeight: "600",
+                  fontSize: "16px",
+                }}
+              >
+                ← Website
+              </p>
+            </a>
+          </li>
         </ul>
         <hr />
         <div className="profile" onClick={handleProfileClick}>

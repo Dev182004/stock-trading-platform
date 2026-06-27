@@ -1,21 +1,12 @@
 import { useState, useEffect } from "react";
-//import { holdings } from "../data/data";
-// import axios from "axios";
 import api from "../Services/api";
 import { VerticalGraph } from "./VerticalGraph";
 
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
 
-  // useEffect(() => {
-  //   axios.get("http://localhost:3002/allHoldings").then((res) => {
-  //     console.log(res.data);
-  //     setAllHoldings(res.data);
-  //   });
-  // }, []);
-
   useEffect(() => {
-    //  FIXED: Uses your base instance
+
     api
       .get("holdings")
       .then((res) => {
@@ -24,23 +15,8 @@ const Holdings = () => {
       .catch((err) => console.error("Holdings load failed:", err));
   }, []);
 
-  //   const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  
   const labels = allHoldings.map((subArray) => subArray["name"]);
-  // export const data = {
-  //   labels,
-  //   datasets: [
-  //     {
-  //       label: 'Dataset 1',
-  //       data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-  //       backgroundColor: 'rgba(255, 99, 132, 0.5)',
-  //     },
-  //     {
-  //       label: 'Dataset 2',
-  //       data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-  //       backgroundColor: 'rgba(53, 162, 235, 0.5)',
-  //     },
-  //   ],
-  // };
 
   const data = {
     labels,

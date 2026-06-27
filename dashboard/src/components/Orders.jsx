@@ -1,23 +1,17 @@
 import { useState, useEffect } from "react";
-
-// import axios from "axios";
-import api from "../Services/api"; 
+import api from "../Services/api";
 
 const Orders = () => {
   let [allOrders, setAllOrders] = useState([]);
 
-  // useEffect(() => {
-  //   axios.get("http://localhost:3002/allOrders").then((res) => {
-  //     console.log(res.data);
-  //     setAllOrders(res.data);
-  //   });
-  // }, []);
   useEffect(() => {
-    //  FIXED: Uses your base instance (Adjust endpoint to include your backend prefix if '/api' is used)
-    api.get("/orders/allOrders").then((res) => {
-      console.log(res.data);
-      setAllOrders(res.data);
-    }).catch(err => console.error("Orders load failed:", err));
+    api
+      .get("/orders/allOrders")
+      .then((res) => {
+        console.log(res.data);
+        setAllOrders(res.data);
+      })
+      .catch((err) => console.error("Orders load failed:", err));
   }, []);
 
   return (

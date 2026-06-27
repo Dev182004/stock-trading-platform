@@ -2,7 +2,6 @@ import { createContext, useState } from "react";
 
 import BuyActionWindow from "./BuyActionWindow";
 
-//mutiple components share -> Context
 const GeneralContext = createContext({
   openBuyWindow: (uid) => {},
   closeBuyWindow: () => {},
