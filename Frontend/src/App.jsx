@@ -9,7 +9,7 @@ import { Routes, Route } from "react-router-dom";
 import Footer from "./Components/landing_Page/Footer";
 import Navbar from "./Components/landing_Page/Navbar";
 import NotFound from "./Components/landing_Page/NotFound";
-import Login from "./Components/landing_Page/login/login";
+import Login from "./Components/landing_Page/login/Login";
 import ProtectedRoute from "./Components/landing_Page/ProtectedRoute";
 
 function App() {
