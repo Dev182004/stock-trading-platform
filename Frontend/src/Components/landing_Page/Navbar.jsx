@@ -14,6 +14,8 @@ export default function Navbar() {
   const { isAuthenticated, logout, user } = useAuth();
 
   const handleLogout = async () => {
+     navigate("/", { replace: true });
+
     await logout();
     toast.success("Logged out successfully.");
     navigate("/");
@@ -61,7 +63,7 @@ export default function Navbar() {
                 </>
               ) : (
                 <>
-                  <a className="nav-link active" href={dashboardUrl}>
+                  <a className="nav-link active" href={`${dashboardUrl}/#/dashboard`}>
                     Dashboard
                   </a>
 

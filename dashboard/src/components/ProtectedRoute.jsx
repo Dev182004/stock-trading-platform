@@ -8,7 +8,7 @@ export default function ProtectedRoute({ children }) {
     if (!loading && !isAuthenticated) {
       const websiteUrl =
         import.meta.env.VITE_WEBSITE_URL || "http://localhost:5173";
-      window.location.href = `${websiteUrl}/login`;
+      window.location.href = `${websiteUrl}/#/login`;
     }
   }, [loading, isAuthenticated]);
 
