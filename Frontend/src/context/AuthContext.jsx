@@ -25,9 +25,11 @@ export function AuthProvider({ children }) {
   }, []);
 
   const logout = async () => {
+    setUser(null);
+    setLoading(false);
+
     try {
       await api.post("/auth/logout");
-      setUser(null);
     } catch (error) {
       console.error(error);
     }
@@ -35,6 +37,7 @@ export function AuthProvider({ children }) {
 
   const login = (userData) => {
     setUser(userData);
+    setLoading(false);
   };
 
   return (

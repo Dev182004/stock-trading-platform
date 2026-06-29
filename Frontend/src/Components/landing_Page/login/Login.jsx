@@ -6,7 +6,7 @@ import { useAuth } from "../../../context/AuthContext";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { checkAuth, login } = useAuth();
+  const { login } = useAuth();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -30,7 +30,6 @@ export default function Login() {
 
       if (loggedInUser) {
         login(loggedInUser);
-        await checkAuth();
       }
 
       toast.success(response.data.message);

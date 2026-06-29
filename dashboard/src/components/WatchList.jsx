@@ -1,7 +1,5 @@
 import { useState, useContext } from "react";
 
-import axios from "axios";
-
 import GeneralContext from "./GeneralContext";
 
 import { Tooltip, Grow } from "@mui/material";
@@ -118,9 +116,8 @@ const WatchListActions = ({ uid }) => {
           placement="top"
           arrow
           TransitionComponent={Grow}
-          onClick={handleBuyClick}
         >
-          <button className="buy">Buy</button>
+          <button onClick={handleBuyClick} className="buy">Buy</button>
         </Tooltip>
         <Tooltip
           title="Sell (S)"

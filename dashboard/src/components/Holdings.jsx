@@ -8,22 +8,24 @@ const Holdings = () => {
   useEffect(() => {
 
     api
-      .get("holdings")
+      .get("/holdings")
       .then((res) => {
-        setAllHoldings(res.data);
+        if (Array.isArray(res.data)) {
+          setAllHoldings(res.data);
+        }
       })
       .catch((err) => console.error("Holdings load failed:", err));
   }, []);
 
   
-  const labels = allHoldings.map((subArray) => subArray["name"]);
+  const labels = allHoldings?.map((subArray) => subArray["name"]);
 
   const data = {
     labels,
     datasets: [
       {
         label: "Stock Price",
-        data: allHoldings.map((stock) => stock.price),
+        data: allHoldings?.map((stock) => stock.price),
         backgroundColor: "rgba(255,99,132,0.5)",
       },
     ],
@@ -31,7 +33,7 @@ const Holdings = () => {
 
   return (
     <>
-      <h3 className="title">Holdings ({allHoldings.length})</h3>
+      <h3 className="title">Holdings ({allHoldings?.length})</h3>
 
       <div className="order-table">
         <table>
@@ -49,7 +51,7 @@ const Holdings = () => {
           </thead>
 
           <tbody>
-            {allHoldings.map((stock, index) => {
+            {allHoldings?.map((stock, index) => {
               const curValue = stock.price * stock.qty;
               const isProfit = curValue - stock.avg * stock.qty >= 0.0;
               const profClass = isProfit ? "profit" : "loss";

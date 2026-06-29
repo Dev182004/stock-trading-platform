@@ -22,7 +22,7 @@ export const GeneralContextProvider = (props) => {
   };
 
   return (
-    <GeneralContext.Provider
+    <GeneralContext
       value={{
         openBuyWindow: handleOpenBuyWindow,
         closeBuyWindow: handleCloseBuyWindow,
@@ -30,7 +30,7 @@ export const GeneralContextProvider = (props) => {
     >
       {props.children}
       {isBuyWindowOpen && <BuyActionWindow uid={selectedStockUID} />}
-    </GeneralContext.Provider>
+    </GeneralContext>
   );
 };
 

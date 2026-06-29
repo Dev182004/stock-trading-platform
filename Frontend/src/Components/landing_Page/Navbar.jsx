@@ -14,11 +14,10 @@ export default function Navbar() {
   const { isAuthenticated, logout, user } = useAuth();
 
   const handleLogout = async () => {
-     navigate("/", { replace: true });
+    logout();
 
-    await logout();
     toast.success("Logged out successfully.");
-    navigate("/");
+    navigate("/", { replace: true });
   };
 
   const dashboardUrl =
@@ -63,9 +62,11 @@ export default function Navbar() {
                 </>
               ) : (
                 <>
-                  <a className="nav-link active" href={`${dashboardUrl}/#/dashboard`}>
-                    Dashboard
-                  </a>
+                  <li className="nav-item">
+                    <a className="nav-link active" href={dashboardUrl}>
+                      Dashboard
+                    </a>
+                  </li>
 
                   <li className="nav-item">
                     <button

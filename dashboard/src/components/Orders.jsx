@@ -8,15 +8,16 @@ const Orders = () => {
     api
       .get("/orders/allOrders")
       .then((res) => {
-        console.log(res.data);
-        setAllOrders(res.data);
+        if (Array.isArray(res.data)) {
+          setAllOrders(res.data);
+        }
       })
       .catch((err) => console.error("Orders load failed:", err));
   }, []);
 
   return (
     <div className="orders">
-      {allOrders.length > 0 ? (
+      {allOrders?.length > 0 ? (
         <div className="order-table">
           <table>
             <thead>
@@ -29,7 +30,7 @@ const Orders = () => {
             </thead>
 
             <tbody>
-              {allOrders.map((order, index) => {
+              {allOrders?.map((order, index) => {
                 return (
                   <tr key={index}>
                     <td>{order.name}</td>

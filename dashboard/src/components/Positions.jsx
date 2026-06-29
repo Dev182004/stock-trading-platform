@@ -16,7 +16,7 @@ const Positions = () => {
 
   return (
     <>
-      <h3 className="title">Positions ({allPositions.length})</h3>
+      <h3 className="title">Positions ({allPositions?.length})</h3>
 
       <div className="order-table">
         <table>
@@ -33,7 +33,7 @@ const Positions = () => {
           </thead>
 
           <tbody>
-            {allPositions.map((stock, index) => {
+            {allPositions?.map((stock, index) => {
               const curValue = stock.price * stock.qty;
               const isProfit = curValue - stock.avg * stock.qty >= 0.0;
               const profClass = isProfit ? "profit" : "loss";

@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
-// import axios from "axios";
-import api from "../Services/api"; 
+import api from "../Services/api";
 
 import GeneralContext from "./GeneralContext";
 
@@ -12,20 +11,28 @@ const BuyActionWindow = ({ uid }) => {
   const [stockQuantity, setStockQuantity] = useState(1);
   const [stockPrice, setStockPrice] = useState(0.0);
 
+
+  const generalContextValues = useContext(GeneralContext); 
+
   const handleBuyClick = () => {
+    api
+      .post("/orders/newOrder", {
+        name: uid,
+        qty: stockQuantity,
+        price: stockPrice,
+        mode: "BUY",
+      })
+      .catch((err) => console.error("Order placement failed:", err));
 
-    api.post("orders/newOrder", {
-      name: uid,
-      qty: stockQuantity,
-      price: stockPrice,
-      mode: "BUY",
-    }).catch(err => console.error("Order placement failed:", err));
-
-    GeneralContext.closeBuyWindow();
+     if (generalContextValues?.closeBuyWindow) {
+      generalContextValues.closeBuyWindow();
+    }
   };
 
   const handleCancelClick = () => {
-    GeneralContext.closeBuyWindow();
+   if (generalContextValues?.closeBuyWindow) {
+      generalContextValues.closeBuyWindow();
+    }
   };
 
   return (
@@ -59,12 +66,12 @@ const BuyActionWindow = ({ uid }) => {
       <div className="buttons">
         <span>Margin required ₹140.65</span>
         <div>
-          <Link className="btn btn-blue" onClick={handleBuyClick}>
+          <button type="button" className="btn btn-blue" onClick={handleBuyClick}>
             Buy
-          </Link>
-          <Link to="" className="btn btn-grey" onClick={handleCancelClick}>
+          </button>
+          <button type="button" className="btn btn-grey" onClick={handleCancelClick}>
             Cancel
-          </Link>
+          </button>
         </div>
       </div>
     </div>
